@@ -1,0 +1,21 @@
+:root {
+  --active-text: #000000;
+  --default-control: #B2B2B2;
+  --disable-control: #F8F8F8;
+  --active-control: #000000;
+  --default-text: #B2B2B2;
+  --disable-text: #F5F5F5;
+  --placeholder-text: #D8D8D8;
+  --button-text: #FFFFFF;
+  --panel-bg: #EEEDED;
+  --title-text: #1B1B1B;
+  --label-black: #000000;
+  --label-brown: #9C4302;
+  --label-blue: #0009DB;
+  --label-yellow: #EFAC00;
+  --label-orange: #EB4802;
+  --label-red: #D10000;
+  --label-violet: #955FEC;
+  --label-pink: #F67EC6;
+  --label-green: #3BB04D;
+}
