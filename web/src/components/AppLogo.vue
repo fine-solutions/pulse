@@ -4,7 +4,7 @@ import AppIcon from './icons/AppIcon.vue';
 
 <template>
   <div class="app-logo">
-    <AppIcon :switching-interval="5000" :icon-color="violet" />
+    <AppIcon icon-color="violet" />
   </div>
 </template>
 

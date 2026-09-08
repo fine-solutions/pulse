@@ -24,14 +24,11 @@ const props = defineProps({
   },
 });
 
-console.log(props.iconColor);
-console.log(props.switchingInterval);
-
 const logoColor = ref('');
 const counter = ref(0);
 for (let i = 0; i < COLORS.length; i++) {
   if (props.iconColor === COLORS[i]) {
-    counter.value = COLORS[i];
+    counter.value = i;
     setLogoColor()
   }
 }
