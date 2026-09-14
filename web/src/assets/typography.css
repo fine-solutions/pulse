@@ -1,0 +1,95 @@
+:root {
+  --regular-font-family: "Inter 18pt", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --medium-font-family: "Inter 18pt Medium", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --bold-font-family: "Inter 24pt Bold", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+@font-face {
+  font-family: "Inter 18pt";
+  src: local("Inter"),
+    local("Inter_18pt-Regular"),
+    url("fonts/inter-18pt-regular.woff2") format("woff2"),
+    url("fonts/inter-18pt-regular.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Inter 18pt Medium";
+  src: local("Inter Medium"),
+    local("Inter_18pt-Medium"),
+    url("fonts/inter-18pt-medium.woff2") format("woff2"),
+    url("fonts/inter-18pt-medium.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Inter 24pt Bold";
+  src: local("Inter Bold"),
+    local("Inter_24pt-Bold"),
+    url("fonts/inter-24pt-bold.woff2") format("woff2"),
+    url("fonts/inter-24pt-bold.woff") format("woff");
+}
+
+.card-label {
+  font-family: var(--regular-font-family);
+  font-size: 12px;
+  line-height: 14.5px;
+}
+
+.control-caption {
+  font-family: var(--regular-font-family);
+  font-size: 16px;
+  line-height: 19.4px;
+}
+
+.control-label {
+  font-family: var(--regular-font-family);
+  font-size: 12px;
+  line-height: 14.5px;
+}
+
+.control-value {
+  font-family: var(--regular-font-family);
+  font-size: 16px;
+  line-height: 19.4px;
+}
+
+.header {
+  font-family: var(--medium-font-family);
+  font-size: 16px;
+  line-height: 19.4px;
+}
+
+.label {
+  font-family: var(--regular-font-family);
+  font-size: 10px;
+  line-height: 12.1px;
+}
+
+.page-default {
+  font-family: var(--regular-font-family);
+  font-size: 16px;
+  line-height: 19.4px;
+}
+
+.page-title {
+  font-family: var(--bold-font-family);
+  font-size: 24px;
+  line-height: 29px;
+}
+
+.panel-header {
+  font-family: var(--medium-font-family);
+  font-size: 16px;
+  line-height: 24.2px;
+}
+
+.subtitle {
+  font-family: var(--regular-font-family);
+  font-size: 12px;
+  line-height: 14.5px;
+}
+
+.title {
+  font-family: var(--regular-font-family);
+  font-size: 14px;
+  line-height: 16.9px;
+}
