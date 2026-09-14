@@ -1,5 +1,14 @@
 <script setup>
 import AppIcon from './icons/AppIcon.vue';
+
+defineProps({
+  iconColor: {
+    type: String,
+  },
+  switchingInterval: {
+    type: Number,
+  },
+})
 </script>
 
 <template>
