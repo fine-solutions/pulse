@@ -3,13 +3,13 @@ import { ref } from 'vue';
 import AppLogo from '@/components/AppLogo.vue';
 
 const switchingInterval = 500;
-const statusLabel = ref("Starting...")
+const statusLabel = ref("Загрузка...")
 </script>
 
 <template>
   <main class="splash-view">
     <AppLogo class="splash-view__logo" :switching-interval="switchingInterval" />
-    <p class="splash-view__label control-label">{{ statusLabel }}</p>
+    <p class="splash-view__label title">{{ statusLabel }}</p>
   </main>
 </template>
 
@@ -22,7 +22,6 @@ const statusLabel = ref("Starting...")
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: var(--logo-wrapper-gap);
   width: 100vw;
   height: 100vh;
 }
@@ -37,6 +36,6 @@ const statusLabel = ref("Starting...")
 .splash-view__label {
   position: fixed;
   margin: 0;
-  top: calc(50vh + var(--logo-size) / 2 + var(--logo-wrapper-gap));
+  bottom: var(--logo-wrapper-gap);
 }
 </style>
