@@ -13,10 +13,19 @@ defineProps({
 
 <template>
   <div class="app-logo">
-    <AppIcon icon-color="violet" />
+    <AppIcon class="app-logo__icon" :switching-interval="switchingInterval" :icon-color="iconColor" />
   </div>
 </template>
 
-<style scoped>
+<style>
+.app-logo {
+  width: 100%;
+  height: 100%;
+}
 
+.app-logo__icon {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
 </style>
