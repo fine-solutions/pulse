@@ -37,7 +37,7 @@ default:
       <input class="auth-view__input" type="password">
     </label>
     <button class="auth-view__button">Войти</button>
-    <router-link v-if="isAuthMode" class="auth-view__link" :to="{ name: 'auth', params: { mode: 'lost' } }">Забыли пароль</router-link>
-    <router-link v-if="isAuthMode" class="auth-view__link" :to="{ name: 'auth', params: { mode: 'reg' } }">Регистрация</router-link>
+    <router-link v-if="isAuthMode" class="auth-view__link" :to="{ name: 'reg' }">Регистрация</router-link>
+    <router-link v-if="isAuthMode" class="auth-view__link" :to="{ name: 'lost' }">Забыли пароль</router-link>
   </main>
 </template>
