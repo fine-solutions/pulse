@@ -42,6 +42,7 @@ defineProps({
 }
 
 .form-input__field {
+  box-sizing: border-box;
   width: 100%;
   padding: 1em 0.625em;
   margin: 0;
