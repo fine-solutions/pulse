@@ -28,6 +28,12 @@
     url("fonts/inter-24pt-bold.woff") format("woff");
 }
 
+:root {
+  font-family: var(--regular-font-family);
+  font-size: 16px;
+  line-height: 19.4px;
+}
+
 .card-label {
   font-family: var(--regular-font-family);
   font-size: 12px;
