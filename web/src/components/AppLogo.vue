@@ -1,5 +1,5 @@
 <script setup>
-import AppIcon from './icons/AppIcon.vue';
+import AppIcon from './AppIcon.vue';
 
 defineProps({
   iconColor: {
