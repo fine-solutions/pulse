@@ -25,6 +25,16 @@ const router = createRouter({
       name: 'lost',
       component: AuthView,
     },
+    {
+      path: '/auth/code',
+      name: 'code',
+      component: AuthView,
+    },
+    {
+      path: '/auth/pass',
+      name: 'pass',
+      component: AuthView,
+    },
   ],
 })
 
