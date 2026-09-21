@@ -55,6 +55,7 @@ function onAction() {
   width: 100%;
   cursor: pointer;
   background-color: var(--default-control);
+  outline: none;
 }
 
 .form-button--link {
@@ -96,5 +97,11 @@ function onAction() {
 .form-button--link:active,
 .form-button--link:focus-visible {
   opacity: 0.25;
+}
+
+.form-button--link:hover > .form-button__label,
+.form-button--link:active > .form-button__label,
+.form-button--link:focus-visible > .form-button__label {
+  text-decoration: underline;
 }
 </style>

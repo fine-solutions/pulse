@@ -47,6 +47,7 @@ defineProps({
   margin: 0;
   border-radius: 0;
   border: 1px solid var(--default-control);
+  outline: none;
 }
 
 .form-input:has(.form-input__field:disabled) > .form-input__label {
@@ -59,7 +60,7 @@ defineProps({
 
 .form-input__field:hover,
 .form-input__field:active,
-.form-input__field:focus {
+.form-input__field:focus-visible {
   border-color: var(--active-control);
 }
 
