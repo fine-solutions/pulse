@@ -59,6 +59,7 @@ function onAction() {
 }
 
 .form-button--link {
+  padding: 0.34375em 0.625em;
   background-color: transparent;
 }
 
