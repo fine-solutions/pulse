@@ -1,12 +1,14 @@
 <script setup>
 import route from '@/router';
 import { ref } from 'vue';
+import FormInput from '@/components/FormInput.vue';
+import FormButton from '@/components/FormButton.vue';
 
 const isRegMode = ref(false);
 const isLostMode = ref(false);
 const isAuthMode = ref(true);
-const mode = ref(route.currentRoute.value.name)
-
+const isSending = ref(false);
+const mode = ref(route.currentRoute.value.name);
 
 switch (mode.value) {
 case 'reg':
@@ -24,20 +26,30 @@ default:
   isLostMode.value = false
   isAuthMode.value = true
 }
+
+function sendData() {
+  isSending.value = true
+}
 </script>
 
 <template>
   <main class="auth-view">
-    <label class="auth-view__label">
-      <span class="auth-view__label-span">Электронная почта</span>
-      <input class="auth-view__input" type="email">
-    </label>
-    <label v-if="!isLostMode" class="auth-view__label">
-      <span class="auth-view__label-span">Пароль</span>
-      <input class="auth-view__input" type="password">
-    </label>
-    <button class="auth-view__button">Войти</button>
-    <router-link v-if="isAuthMode" class="auth-view__link" :to="{ name: 'reg' }">Регистрация</router-link>
-    <router-link v-if="isAuthMode" class="auth-view__link" :to="{ name: 'lost' }">Забыли пароль</router-link>
+    <FormInput class="auth-view__field" field-label="Электронная почта" field-type="email" />
+    <FormInput class="auth-view__field" field-label="Пароль" field-type="password" />
+    <FormButton class="auth-view__button" button-text="Войти" :is-processing="isSending" @click-action="sendData" />
+    <FormButton class="auth-view__button" v-if="isAuthMode" button-text="Регистрация" :button-route="{ name: 'reg' }" :is-link="true" />
+    <FormButton class="auth-view__button" v-if="isAuthMode" button-text="Забыли пароль" :button-route="{ name: 'lost' }" :is-link="true" />
   </main>
 </template>
+
+<style scoped>
+.auth-view {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--control-gap);
+  width: calc(100vw - 0.625em);
+  max-width: 227px;
+}
+</style>
