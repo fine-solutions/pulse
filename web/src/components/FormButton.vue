@@ -17,6 +17,10 @@ const props = defineProps({
   isLink: {
     type: Boolean,
     default: false,
+  },
+  isProcessing: {
+    type: Boolean,
+    default: false,
   }
 })
 
@@ -24,7 +28,7 @@ const emit = defineEmits([
   'click-action'
 ])
 
-function onAction() {
+async function onAction() {
   if (props.isLink) {
     router.push(props.buttonRoute)
   } else {
@@ -36,8 +40,9 @@ function onAction() {
 <template>
   <button
     :class="{
-      'form-button': !isLink,
+      'form-button': !isLink && !isProcessing,
       'form-button form-button--link': isLink,
+      'form-button form-button--processing': isProcessing,
     }"
     :disabled="isDisabled"
     @click="onAction()"
@@ -63,6 +68,25 @@ function onAction() {
   background-color: transparent;
 }
 
+.form-button--processing {
+  --line-step: 25%;
+  --line-opacity: 0.15;
+  background-size: 3em 3em;
+  background-image: linear-gradient(
+    -45deg,
+    rgba(255, 255, 255, var(--line-opacity)) var(--line-step),
+    transparent var(--line-step),
+    transparent calc(var(--line-step) * 2),
+    rgba(255, 255, 255, var(--line-opacity)) calc(var(--line-step) * 2),
+    rgba(255, 255, 255, var(--line-opacity)) calc(var(--line-step) * 3),
+    transparent calc(var(--line-step) * 3),
+    transparent
+  );
+
+  animation: move-stripes 1s linear infinite;
+  transition: width 0.4s ease;
+}
+
 .form-button:hover,
 .form-button:active,
 .form-button:focus-visible {
@@ -73,6 +97,22 @@ function onAction() {
 .form-button--link:active,
 .form-button--link:focus-visible {
   background-color: transparent;
+}
+
+.form-button--processing:hover,
+.form-button--processing:active,
+.form-button--processing:focus-visible {
+  --line-opacity: 0.35;
+  background-image: linear-gradient(
+    -45deg,
+    rgba(255, 255, 255, var(--line-opacity)) var(--line-step),
+    transparent var(--line-step),
+    transparent calc(var(--line-step) * 2),
+    rgba(255, 255, 255, var(--line-opacity)) calc(var(--line-step) * 2),
+    rgba(255, 255, 255, var(--line-opacity)) calc(var(--line-step) * 3),
+    transparent calc(var(--line-step) * 3),
+    transparent
+  );
 }
 
 .form-button:disabled {
@@ -104,5 +144,14 @@ function onAction() {
 .form-button--link:active > .form-button__label,
 .form-button--link:focus-visible > .form-button__label {
   text-decoration: underline;
+}
+
+@keyframes move-stripes {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 3em 0; /* Matches the background-size width for a seamless loop */
+  }
 }
 </style>
