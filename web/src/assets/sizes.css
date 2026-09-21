@@ -1,5 +1,6 @@
 :root {
   --icon-size: 24px;
+  --control-gap: 17px;
   --control-height: 48px;
   --corner-radius: 0;
 }
