@@ -32,6 +32,7 @@ defineProps({
   flex-direction: column;
   align-items: start;
   justify-content: flex-start;
+  width: 100%;
   margin: 0;
 }
 
