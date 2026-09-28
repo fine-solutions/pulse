@@ -3,7 +3,8 @@ import { ref, watch } from 'vue'
 
 const emit = defineEmits([
   'onChange',
-  'onBlur'
+  'onBlur',
+  'onEnter',
 ])
 
 defineProps({
@@ -37,12 +38,18 @@ watch(
 function lostFocus() {
   emit('onBlur')
 }
+
+function pressKey(event) {
+  if (event.key === 'Enter') {
+    emit('onEnter')
+  }
+}
 </script>
 
 <template>
   <label class="form-input">
     <span class="form-input__label card-label">{{ fieldLabel }}</span>
-    <input class="form-input__field control-value" v-model="fieldValue" :type="fieldType" :placeholder="fieldPlaceholder" :disabled="isDisabled" @blur="lostFocus">
+    <input class="form-input__field control-value" v-model="fieldValue" :type="fieldType" :placeholder="fieldPlaceholder" :disabled="isDisabled" @blur="lostFocus" @keypress="pressKey">
   </label>
 </template>
 
