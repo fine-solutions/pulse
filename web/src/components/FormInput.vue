@@ -1,4 +1,11 @@
 <script setup>
+import { ref, watch } from 'vue'
+
+const emit = defineEmits([
+  'onChange',
+  'onBlur'
+])
+
 defineProps({
   fieldType: {
     type: String,
@@ -17,12 +24,25 @@ defineProps({
     default: false,
   }
 })
+
+const fieldValue = ref('')
+
+watch(
+  () => fieldValue.value,
+  (to) => {
+    emit('onChange', to)
+  }
+)
+
+function lostFocus() {
+  emit('onBlur')
+}
 </script>
 
 <template>
   <label class="form-input">
     <span class="form-input__label card-label">{{ fieldLabel }}</span>
-    <input class="form-input__field control-value" :type="fieldType" :placeholder="fieldPlaceholder" :disabled="isDisabled">
+    <input class="form-input__field control-value" v-model="fieldValue" :type="fieldType" :placeholder="fieldPlaceholder" :disabled="isDisabled" @blur="lostFocus">
   </label>
 </template>
 

@@ -3,6 +3,8 @@
   --default-control: #B2B2B2;
   --disable-control: #F8F8F8;
   --active-control: #000000;
+  --success-hint: #16b013;
+  --wrong-hint: #c71e12;
   --default-text: #B2B2B2;
   --disable-text: #F5F5F5;
   --placeholder-text: #D8D8D8;
