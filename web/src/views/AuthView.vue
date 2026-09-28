@@ -1,6 +1,7 @@
 <script setup>
 import route from '@/router';
 import { ref } from 'vue';
+import { useProfileStore } from '@/stores/profile';
 import FormInput from '@/components/FormInput.vue';
 import FormButton from '@/components/FormButton.vue';
 
@@ -81,6 +82,25 @@ default:
   isAuthMode.value = true
   isCodeMode.value = false;
   isPassMode.value = false;
+}
+
+const profile = useProfileStore()
+
+async function sendData() {
+  isSending.value = true
+  if (isAuthMode.value) {
+    await signIn()
+  }
+  isSending.value = false
+}
+
+async function signIn() {
+  const signingInSuccess = await profile.signIn(email.value, defaultPassword.value)
+  if (signingInSuccess) {
+    console.log(true, profile.profile)
+  } else {
+    console.log(false, profile.profile)
+  }
 }
 
 function changeCodeValue(newValue) {
@@ -198,11 +218,6 @@ function newSecondPasswordFieldBlur() {
   if (!firstBlurForNewSecondPasswordFieldFlag.value && !isNewSecondPasswordValid.value) {
     firstBlurForNewSecondPasswordFieldFlag.value = true
   }
-}
-
-
-function sendData() {
-  isSending.value = true
 }
 </script>
 
