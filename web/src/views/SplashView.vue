@@ -1,9 +1,22 @@
 <script setup>
-import { ref } from 'vue';
+import { ref, onMounted } from 'vue';
+import { useProfileStore } from '@/stores/profile';
+import { useRouter } from 'vue-router';
 import AppLogo from '@/components/AppLogo.vue';
+
+const profile = useProfileStore();
+const router = useRouter();
 
 const switchingInterval = 500;
 const statusLabel = ref("Загрузка...")
+
+onMounted(() => {
+  setTimeout(() => {
+    if (profile.settings.token === '') {
+      router.push({ name: 'auth' })
+    }
+  }, switchingInterval)
+})
 </script>
 
 <template>

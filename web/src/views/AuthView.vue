@@ -1,9 +1,12 @@
 <script setup>
-import route from '@/router';
 import { ref } from 'vue';
+import { useRouter } from 'vue-router';
+import route from '@/router';
 import { useProfileStore } from '@/stores/profile';
 import FormInput from '@/components/FormInput.vue';
 import FormButton from '@/components/FormButton.vue';
+
+const router = useRouter();
 
 const isRegMode = ref(false);
 const isLostMode = ref(false);
@@ -35,6 +38,8 @@ const firstBlurForDefaultPasswordFieldFlag = ref(false)
 const firstBlurForOldPasswordFieldFlag = ref(false)
 const firstBlurForNewFirstPasswordFieldFlag = ref(false)
 const firstBlurForNewSecondPasswordFieldFlag = ref(false)
+
+const unsuccessfulSigningInFlag = ref(false)
 
 const codeValidationResult = ref('')
 const emailValidationResult = ref('')
@@ -97,9 +102,15 @@ async function sendData() {
 async function signIn() {
   const signingInSuccess = await profile.signIn(email.value, defaultPassword.value)
   if (signingInSuccess) {
-    console.log(true, profile.profile)
+    router.push({ name: 'main' })
   } else {
-    console.log(false, profile.profile)
+    unsuccessfulSigningInFlag.value = true
+    firstBlurForCodeFieldFlag.value = false
+    firstBlurForEmailFieldFlag.value = false
+    firstBlurForDefaultPasswordFieldFlag.value = false
+    firstBlurForOldPasswordFieldFlag.value = false
+    firstBlurForNewFirstPasswordFieldFlag.value = false
+    firstBlurForNewSecondPasswordFieldFlag.value = false
   }
 }
 
@@ -234,6 +245,7 @@ function newSecondPasswordFieldBlur() {
     <div class="auth-view__wrapper" v-if="isAuthMode || isRegMode">
       <FormInput class="auth-view__field" field-label="Пароль" field-type="password" field-placeholder="············" @on-change="changeDefaultPassword" @on-blur="defaultPasswordFieldBlur" @on-enter="sendData" />
       <p :class="isDefaultPasswordValid ? 'auth-view__success-hint' : 'auth-view__wrong-hint'" v-if="firstBlurForDefaultPasswordFieldFlag">{{ defaultPasswordValidationResult }}</p>
+      <p class="auth-view__wrong-hint" v-if="unsuccessfulSigningInFlag">Неверный пароль</p>
     </div>
     <div class="auth-view__wrapper" v-if="isPassMode">
       <FormInput class="auth-view__field" field-label="Старый пароль" field-type="password" field-placeholder="············" @on-change="changeOldPassword" @on-blur="oldPasswordFieldBlur" @on-enter="sendData" />
