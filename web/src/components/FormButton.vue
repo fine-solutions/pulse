@@ -7,8 +7,10 @@ const props = defineProps({
     default: 'Button',
   },
   buttonRoute: {
-    type: String,
-    default: ''
+    type: Object,
+    default: () => {
+      return { name: 'main' }
+    },
   },
   isDisabled: {
     type: Boolean,
