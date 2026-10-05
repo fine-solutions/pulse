@@ -234,39 +234,48 @@ function newSecondPasswordFieldBlur() {
 
 <template>
   <main class="auth-view">
-    <div class="auth-view__wrapper" v-if="isCodeMode">
-      <FormInput class="auth-view__field" field-label="Код" field-placeholder="000-000" @on-change="changeCodeValue" @on-blur="codeFieldBlur" @on-enter="sendData" />
-      <p :class="isCodeValid ? 'auth-view__success-hint' : 'auth-view__wrong-hint'" v-if="firstBlurForCodeFieldFlag">{{ codeValidationResult }}</p>
-    </div>
-    <div class="auth-view__wrapper" v-if="isAuthMode || isLostMode || isRegMode">
-      <FormInput class="auth-view__field" field-label="Электронная почта" field-type="email" field-placeholder="user@example.com" @on-change="changeEmailValue" @on-blur="emailFieldBlur" @on-enter="sendData" />
-      <p :class="isEmailValid ? 'auth-view__success-hint' : 'auth-view__wrong-hint'" v-if="firstBlurForEmailFieldFlag">{{ emailValidationResult }}</p>
-    </div>
-    <div class="auth-view__wrapper" v-if="isAuthMode || isRegMode">
-      <FormInput class="auth-view__field" field-label="Пароль" field-type="password" field-placeholder="············" @on-change="changeDefaultPassword" @on-blur="defaultPasswordFieldBlur" @on-enter="sendData" />
-      <p :class="isDefaultPasswordValid ? 'auth-view__success-hint' : 'auth-view__wrong-hint'" v-if="firstBlurForDefaultPasswordFieldFlag">{{ defaultPasswordValidationResult }}</p>
-      <p class="auth-view__wrong-hint" v-if="unsuccessfulSigningInFlag">Неверный пароль</p>
-    </div>
-    <div class="auth-view__wrapper" v-if="isPassMode">
-      <FormInput class="auth-view__field" field-label="Старый пароль" field-type="password" field-placeholder="············" @on-change="changeOldPassword" @on-blur="oldPasswordFieldBlur" @on-enter="sendData" />
-      <p :class="isOldPasswordValid ? 'auth-view__success-hint' : 'auth-view__wrong-hint'" v-if="firstBlurForOldPasswordFieldFlag">{{ oldPasswordValidationResult }}</p>
-    </div>
-    <div class="auth-view__wrapper" v-if="isPassMode">
-      <FormInput class="auth-view__field" field-label="Новый пароль" field-type="password" field-placeholder="············" @on-change="changeNewFirstPassword" @on-blur="newFirstPasswordFieldBlur" @on-enter="sendData" />
-      <p :class="isNewFirstPasswordValid ? 'auth-view__success-hint' : 'auth-view__wrong-hint'" v-if="firstBlurForNewFirstPasswordFieldFlag">{{ newFirstPasswordValidationResult }}</p>
-    </div>
-    <div class="auth-view__wrapper" v-if="isPassMode">
-      <FormInput class="auth-view__field" field-label="Новый пароль" field-type="password" field-placeholder="············" @on-change="changeNewSecondPassword" @on-blur="newSecondPasswordFieldBlur" @on-enter="sendData" />
-      <p :class="isNewSecondPasswordValid ? 'auth-view__success-hint' : 'auth-view__wrong-hint'" v-if="firstBlurForNewSecondPasswordFieldFlag">{{ newSecondPasswordValidationResult }}</p>
-    </div>
-    <FormButton class="auth-view__button" :button-text="buttonLabel" :is-processing="isSending" @click-action="sendData" />
-    <FormButton class="auth-view__button" v-if="isAuthMode" button-text="Регистрация" :button-route="{ name: 'reg' }" :is-link="true" />
-    <FormButton class="auth-view__button" v-if="isAuthMode" button-text="Забыли пароль" :button-route="{ name: 'lost' }" :is-link="true" />
+    <form class="auth-view__form">
+      <div class="auth-view__wrapper" v-if="isCodeMode">
+        <FormInput class="auth-view__field" field-label="Код" field-placeholder="000-000" @on-change="changeCodeValue" @on-blur="codeFieldBlur" @on-enter="sendData" />
+        <p :class="isCodeValid ? 'auth-view__success-hint' : 'auth-view__wrong-hint'" v-if="firstBlurForCodeFieldFlag">{{ codeValidationResult }}</p>
+      </div>
+      <div class="auth-view__wrapper" v-if="isAuthMode || isLostMode || isRegMode">
+        <FormInput class="auth-view__field" field-label="Электронная почта" field-type="email" field-placeholder="user@example.com" @on-change="changeEmailValue" @on-blur="emailFieldBlur" @on-enter="sendData" />
+        <p :class="isEmailValid ? 'auth-view__success-hint' : 'auth-view__wrong-hint'" v-if="firstBlurForEmailFieldFlag">{{ emailValidationResult }}</p>
+      </div>
+      <div class="auth-view__wrapper" v-if="isAuthMode || isRegMode">
+        <FormInput class="auth-view__field" field-label="Пароль" field-type="password" field-placeholder="············" @on-change="changeDefaultPassword" @on-blur="defaultPasswordFieldBlur" @on-enter="sendData" />
+        <p :class="isDefaultPasswordValid ? 'auth-view__success-hint' : 'auth-view__wrong-hint'" v-if="firstBlurForDefaultPasswordFieldFlag">{{ defaultPasswordValidationResult }}</p>
+        <p class="auth-view__wrong-hint" v-if="unsuccessfulSigningInFlag">Неверный пароль</p>
+      </div>
+      <div class="auth-view__wrapper" v-if="isPassMode">
+        <FormInput class="auth-view__field" field-label="Старый пароль" field-type="password" field-placeholder="············" @on-change="changeOldPassword" @on-blur="oldPasswordFieldBlur" @on-enter="sendData" />
+        <p :class="isOldPasswordValid ? 'auth-view__success-hint' : 'auth-view__wrong-hint'" v-if="firstBlurForOldPasswordFieldFlag">{{ oldPasswordValidationResult }}</p>
+      </div>
+      <div class="auth-view__wrapper" v-if="isPassMode">
+        <FormInput class="auth-view__field" field-label="Новый пароль" field-type="password" field-placeholder="············" @on-change="changeNewFirstPassword" @on-blur="newFirstPasswordFieldBlur" @on-enter="sendData" />
+        <p :class="isNewFirstPasswordValid ? 'auth-view__success-hint' : 'auth-view__wrong-hint'" v-if="firstBlurForNewFirstPasswordFieldFlag">{{ newFirstPasswordValidationResult }}</p>
+      </div>
+      <div class="auth-view__wrapper" v-if="isPassMode">
+        <FormInput class="auth-view__field" field-label="Новый пароль" field-type="password" field-placeholder="············" @on-change="changeNewSecondPassword" @on-blur="newSecondPasswordFieldBlur" @on-enter="sendData" />
+        <p :class="isNewSecondPasswordValid ? 'auth-view__success-hint' : 'auth-view__wrong-hint'" v-if="firstBlurForNewSecondPasswordFieldFlag">{{ newSecondPasswordValidationResult }}</p>
+      </div>
+      <FormButton class="auth-view__button" :button-text="buttonLabel" :is-processing="isSending" @click-action="sendData" />
+      <FormButton class="auth-view__button" v-if="isAuthMode" button-text="Регистрация" :button-route="{ name: 'reg' }" :is-link="true" />
+      <FormButton class="auth-view__button" v-if="isAuthMode" button-text="Забыли пароль" :button-route="{ name: 'lost' }" :is-link="true" />
+    </form>
   </main>
 </template>
 
 <style scoped>
 .auth-view {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.auth-view__form {
   display: flex;
   flex-direction: column;
   align-items: center;
