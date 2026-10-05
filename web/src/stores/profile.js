@@ -8,7 +8,7 @@ export const useProfileStore = defineStore('profile', () => {
   const complexity = ref('*')
   const token = ref('')
 
-  const profile = computed(() => {
+  const settings = computed(() => {
     return {
       email: email.value,
       name: name.value,
@@ -48,5 +48,5 @@ export const useProfileStore = defineStore('profile', () => {
     }, 2000)
   }
 
-  return { profile, signIn, signOut }
+  return { settings, signIn, signOut }
 })
