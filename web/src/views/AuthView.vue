@@ -78,10 +78,14 @@ async function sendData() {
   isSending.value = false;
 }
 
+async function loadData(token) {
+}
+
 async function signIn() {
   const signingInSuccess = await profile.signIn(email.value, defaultPassword.value);
   if (signingInSuccess) {
     router.push({ name: 'main' });
+    await loadData(profile.token);
   } else {
     unsuccessfulSigningInFlag.value = true;
     firstBlurForCodeFieldFlag.value = false;

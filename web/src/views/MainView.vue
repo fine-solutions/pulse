@@ -7,8 +7,8 @@ const profile = useProfileStore();
 const router = useRouter();
 
 onMounted(() => {
-  if (profile.settings.token === '') {
-    router.push({ name: 'splash' })
+  if (profile.token === '') {
+    router.push({ name: 'splash' });
   }
 })
 </script>

@@ -1,5 +1,7 @@
 <script setup>
 import { ref, onMounted } from 'vue';
+import { useRouter } from 'vue-router';
+
 import { useProfileStore } from '@/stores/profile';
 import { useRouter } from 'vue-router';
 import AppLogo from '@/components/AppLogo.vue';
@@ -10,10 +12,15 @@ const router = useRouter();
 const switchingInterval = 500;
 const statusLabel = ref("Загрузка...")
 
+async function loadData(token) {
+}
+
 onMounted(() => {
-  setTimeout(() => {
-    if (profile.settings.token === '') {
+  setTimeout(async () => {
+    if (profile.token === '') {
       router.push({ name: 'auth' })
+    } else {
+      await loadData(profile.token)
     }
   }, switchingInterval)
 })

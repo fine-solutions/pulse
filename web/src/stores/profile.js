@@ -1,4 +1,4 @@
-import { ref, computed } from 'vue'
+import { ref } from 'vue'
 import { defineStore } from 'pinia'
 
 export const useProfileStore = defineStore('profile', () => {
@@ -7,16 +7,6 @@ export const useProfileStore = defineStore('profile', () => {
   const about = ref('');
   const complexity = ref('');
   const token = ref('');
-
-  const settings = computed(() => {
-    return {
-      email: email.value,
-      name: name.value,
-      about: about.value,
-      complexity: complexity.value,
-      token: token.value,
-    };
-  })
 
   async function signIn(userEmail, userPassword) {
     if (userEmail === 'igsekor@gmail.com' && userPassword === '12345678') {
@@ -37,7 +27,7 @@ export const useProfileStore = defineStore('profile', () => {
     }, 2000)
   }
 
-  return { settings, signIn, signOut }
+  return { email, name, about, complexity, token, signIn, signOut }
 }, {
   persist: true
 })
