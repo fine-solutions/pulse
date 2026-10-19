@@ -8,6 +8,7 @@ export const useTeamStore = defineStore('team', () => {
     if (userToken === 'aksdhoiaHWEfndkSLVcnBviqhWEFOIufsd0924375983uertjndsf') {
       teamList.value.push({
         title: 'Исследователи',
+        icon: '',
         image: '/images/default-team.png',
         status: {
           label: 'Все',
@@ -20,6 +21,7 @@ export const useTeamStore = defineStore('team', () => {
       })
       teamList.value.push({
         title: 'Администраторы',
+        icon: '',
         image: '/images/default-team.png',
         status: {
           label: 'Все',
@@ -32,6 +34,7 @@ export const useTeamStore = defineStore('team', () => {
       })
       teamList.value.push({
         title: 'Гиды',
+        icon: '',
         image: '/images/default-team.png',
         status: {
           label: 'Все',
