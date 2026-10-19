@@ -2,9 +2,15 @@
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 import route from '@/router';
+
 import { useProfileStore } from '@/stores/profile';
+import { useProjectStore } from '@/stores/project';
+
 import FormInput from '@/components/FormInput.vue';
 import FormButton from '@/components/FormButton.vue';
+
+const profile = useProfileStore();
+const project = useProjectStore();
 
 const router = useRouter();
 
@@ -68,8 +74,6 @@ default:
   buttonLabel.value = 'Войти';
 }
 
-const profile = useProfileStore()
-
 async function sendData() {
   isSending.value = true;
   if (currentMode.value === MODE.AUTH) {
@@ -79,6 +83,7 @@ async function sendData() {
 }
 
 async function loadData(token) {
+  await project.load(token);
 }
 
 async function signIn() {
