@@ -8,7 +8,11 @@ const props = defineProps({
   },
   linkIcon: {
     type: String,
-    require: true,
+    default: '',
+  },
+  linkImage: {
+    type: String,
+    default: '',
   },
   linkStatus: {
     type: Object,
@@ -41,7 +45,8 @@ function getLabelColorStyles(labelColor) {
 <template>
   <article class="link-item">
     <div class="link-item__icon-wrapper">
-      <p class="link-item__icon">{{ props.linkIcon }}</p>
+      <p class="link-item__icon" v-if="props.linkIcon !== ''">{{ props.linkIcon }}</p>
+      <img class="link-item__icon" v-if="props.linkImage !== ''" :src="props.linkImage" alt="">
     </div>
     <p class="link-item__status label" :style="getLabelColorStyles(statusColor)">{{ statusLabel }}</p>
     <h3 class="link-item__title title">{{ props.linkTitle }}</h3>

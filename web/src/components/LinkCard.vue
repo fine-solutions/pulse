@@ -6,7 +6,11 @@ const props = defineProps({
   },
   linkIcon: {
     type: String,
-    require: true,
+    default: '',
+  },
+  linkImage: {
+    type: String,
+    default: '',
   },
 })
 </script>
@@ -14,7 +18,8 @@ const props = defineProps({
 <template>
   <article class="link-card">
     <div class="link-card__icon-wrapper">
-      <p class="link-card__icon">{{ props.linkIcon }}</p>
+      <p class="link-card__icon" v-if="props.linkIcon !== ''">{{ props.linkIcon }}</p>
+      <img class="link-card__icon" v-if="props.linkImage !== ''" :src="props.linkImage" alt="">
     </div>
     <h3 class="link-card__title card-label">{{ props.linkTitle }}</h3>
   </article>
