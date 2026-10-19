@@ -20,4 +20,6 @@
   --label-violet: #955FEC;
   --label-pink: #F67EC6;
   --label-green: #3BB04D;
+  --label-background-color: var(--active-control);
+  --label-text-color: var(--active-text);
 }
