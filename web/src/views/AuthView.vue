@@ -5,12 +5,14 @@ import route from '@/router';
 
 import { useProfileStore } from '@/stores/profile';
 import { useProjectStore } from '@/stores/project';
+import { useTargetStore } from '@/stores/target';
 
 import FormInput from '@/components/FormInput.vue';
 import FormButton from '@/components/FormButton.vue';
 
 const profile = useProfileStore();
 const project = useProjectStore();
+const target = useTargetStore();
 
 const router = useRouter();
 
@@ -84,6 +86,7 @@ async function sendData() {
 
 async function loadData(token) {
   await project.load(token);
+  await target.load(token);
 }
 
 async function signIn() {

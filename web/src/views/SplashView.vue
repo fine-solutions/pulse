@@ -4,11 +4,13 @@ import { useRouter } from 'vue-router';
 
 import { useProfileStore } from '@/stores/profile';
 import { useProjectStore } from '@/stores/project';
+import { useTargetStore } from '@/stores/target';
 
 import AppLogo from '@/components/AppLogo.vue';
 
 const profile = useProfileStore();
 const project = useProjectStore();
+const target = useTargetStore();
 
 const router = useRouter();
 
@@ -17,6 +19,7 @@ const statusLabel = ref("Загрузка...")
 
 async function loadData(token) {
   await project.load(token);
+  await target.load(token);
 }
 
 onMounted(() => {
