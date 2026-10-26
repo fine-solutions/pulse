@@ -36,18 +36,21 @@ const taskList = computed(() => task.taskList)
 const chapterList = computed(() => {
   return [
     {
-      title: 'Команды',
+      title: `Команды ${teamList.value.length > 4 ? '(4 / ' + teamList.value.length + ')' : ''}`,
       items: teamList.value,
+      itemCount: teamList.value.length,
       objectKey: 'team',
     },
     {
-      title: 'Проекты',
-      items: projectList.value,
+      title: `Проекты ${projectList.value.length > 4 ? '(4 / ' + projectList.value.length + ')' : ''}`,
+      items: projectList.value.slice(0, 4),
+      itemCount: projectList.value.length,
       objectKey: 'project',
     },
     {
-      title: 'Цели',
+      title: `Цели ${targetList.value.length > 4 ? '(4 / ' + targetList.value.length + ')' : ''}`,
       items: targetList.value,
+      itemCount: targetList.value.length,
       objectKey: 'target',
     },
   ]
@@ -80,6 +83,8 @@ onMounted(() => {
       <div class="main__item-wrapper" v-if="chapterModes[chapter.objectKey] === MODE.LIST">
         <LinkItem class="main__item" v-for="(item, itemIndex) in chapter.items" :key="itemIndex" :link-title="item.title" :link-icon="item.icon" :link-image="item.image" :link-status="item.status" :link-progress="item.progress" />
       </div>
+      <button class="main__section-button" v-if="chapter.itemCount > 4" @click="router.push({ name: chapter.objectKey })">Смотреть все</button>
+
     </section>
     <section class="main__section">
       <div class="main__header-wrapper">
@@ -120,7 +125,16 @@ onMounted(() => {
   padding: 0;
 }
 
-.main__header-button-icon {}
+.main__section-button {
+  appearance: none;
+  color: var(--button-text);
+  background-color: var(--active-control);
+  border: none;
+  border-radius: 0px;
+  width: 100%;
+  height: 36px;
+  margin: 18px 0px 0px;
+}
 
 .main__item-wrapper {
   width: 100%;
