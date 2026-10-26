@@ -1,5 +1,5 @@
 <script setup>
-import { RouterView, useRoute } from 'vue-router';
+import { RouterView, useRoute, useRouter } from 'vue-router';
 import HeaderLayout from '@/components/HeaderLayout.vue';
 import { onMounted, ref } from 'vue';
 
@@ -7,15 +7,19 @@ const MODE = Object.freeze({
   SPLASH: 'splash',
   AUTH: 'auth',
   MAIN: 'main',
+  PROJECT: 'project',
   DEFAULT: 'default'
 });
 
-const route = useRoute()
+const route = useRoute();
+const router = useRouter();
 const headerTitle = ref('');
 
 function onStartActionClick() {
   if (route.name === MODE.MAIN) {
     alert('Main');
+  } else if (route.name === MODE.PROJECT) {
+    router.push({ name: MODE.MAIN })
   } else {
     alert('Start');
   }

@@ -1,7 +1,8 @@
-import { createRouter, createWebHistory } from 'vue-router'
-import SplashView from '../views/SplashView.vue'
-import MainView from '@/views/MainView.vue'
-import AuthView from '../views/AuthView.vue'
+import { createRouter, createWebHistory } from 'vue-router';
+import SplashView from '../views/SplashView.vue';
+import MainView from '@/views/MainView.vue';
+import AuthView from '../views/AuthView.vue';
+import ProjectListView from '@/views/ProjectListView.vue';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -41,7 +42,12 @@ const router = createRouter({
       name: 'pass',
       component: AuthView,
     },
+    {
+      path: '/project',
+      name: 'project',
+      component: ProjectListView,
+    },
   ],
-})
+});
 
-export default router
+export default router;
