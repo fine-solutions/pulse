@@ -7,6 +7,11 @@ export const useTargetStore = defineStore('target', () => {
   async function load(userToken) {
     if (userToken === 'aksdhoiaHWEfndkSLVcnBviqhWEFOIufsd0924375983uertjndsf') {
       targetList.value.push({
+        id: 1,
+        project: {
+          id: 1,
+          title: 'Экспедиция в Патагонию',
+        },
         title: 'Получить данные',
         icon: '🔬',
         status: {

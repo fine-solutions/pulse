@@ -7,6 +7,7 @@ export const useProjectStore = defineStore('project', () => {
   async function load(userToken) {
     if (userToken === 'aksdhoiaHWEfndkSLVcnBviqhWEFOIufsd0924375983uertjndsf') {
       projectList.value.push({
+        id: 1,
         title: 'Экспедиция в Патагонию',
         icon: '⛵️',
         status: {
@@ -19,6 +20,7 @@ export const useProjectStore = defineStore('project', () => {
         },
       })
       projectList.value.push({
+        id: 2,
         title: 'Приложение «Пульс»',
         icon: '🚧',
         status: {

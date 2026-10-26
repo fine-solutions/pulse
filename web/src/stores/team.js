@@ -7,7 +7,12 @@ export const useTeamStore = defineStore('team', () => {
   async function load(userToken) {
     if (userToken === 'aksdhoiaHWEfndkSLVcnBviqhWEFOIufsd0924375983uertjndsf') {
       teamList.value.push({
+        id: 1,
         title: 'Исследователи',
+        project: {
+          id: 1,
+          title: 'Экспедиция в Патагонию',
+        },
         icon: '',
         image: '/images/default-team.png',
         status: {
@@ -20,7 +25,12 @@ export const useTeamStore = defineStore('team', () => {
         },
       })
       teamList.value.push({
+        id: 2,
         title: 'Администраторы',
+        project: {
+          id: 1,
+          title: 'Экспедиция в Патагонию',
+        },
         icon: '',
         image: '/images/default-team.png',
         status: {
@@ -33,7 +43,12 @@ export const useTeamStore = defineStore('team', () => {
         },
       })
       teamList.value.push({
+        id: 3,
         title: 'Гиды',
+        project: {
+          id: 1,
+          title: 'Экспедиция в Патагонию',
+        },
         icon: '',
         image: '/images/default-team.png',
         status: {

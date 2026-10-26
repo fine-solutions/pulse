@@ -2,6 +2,7 @@ import { ref } from 'vue'
 import { defineStore } from 'pinia'
 
 export const useProfileStore = defineStore('profile', () => {
+  const id = ref(0);
   const email = ref('');
   const name = ref('');
   const about = ref('');
@@ -10,6 +11,7 @@ export const useProfileStore = defineStore('profile', () => {
 
   async function signIn(userEmail, userPassword) {
     if (userEmail === 'igsekor@gmail.com' && userPassword === '12345678') {
+      id.value = 1
       email.value = userEmail;
       name.value = 'Весь Самделов';
       about.value = 'Никому не делигирует то, что может сделать сам, то есть ничего!';
