@@ -70,7 +70,7 @@ export const useTaskStore = defineStore('task', () => {
           title: 'Экспедиция в Патагонию'
         },
         uiMatrix: 3,
-        complexity: 5,
+        complexity: null,
         status: {
           label: 'Бэклог',
           color: 'black',
