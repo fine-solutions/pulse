@@ -3,6 +3,7 @@
   --control-gap: 17px;
   --control-height: 48px;
   --corner-radius: 0;
+  --content-paddings: 8px;
 }
 
 * {
