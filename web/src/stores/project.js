@@ -11,8 +11,8 @@ export const useProjectStore = defineStore('project', () => {
         title: 'Экспедиция в Патагонию',
         icon: '⛵️',
         status: {
-          label: 'Все',
-          color: 'black',
+          label: 'Путешествия',
+          color: 'violet',
         },
         progress: {
           done: 3,
@@ -24,8 +24,60 @@ export const useProjectStore = defineStore('project', () => {
         title: 'Приложение «Пульс»',
         icon: '🚧',
         status: {
-          label: 'Все',
+          label: 'Работа',
           color: 'black',
+        },
+        progress: {
+          done: 7,
+          all: 12,
+        },
+      })
+      projectList.value.push({
+        id: 3,
+        title: 'Обучение игре на гитаре',
+        icon: '🎸',
+        status: {
+          label: 'Обучение',
+          color: 'green',
+        },
+        progress: {
+          done: 3,
+          all: 12,
+        },
+      })
+      projectList.value.push({
+        id: 4,
+        title: 'Поездка в Костёнки',
+        icon: '🦣',
+        status: {
+          label: 'Путешествия',
+          color: 'violet',
+        },
+        progress: {
+          done: 7,
+          all: 12,
+        },
+      })
+      projectList.value.push({
+        id: 5,
+        title: 'Система развёртывания для приложения «Пульс»',
+        icon: '🛠️',
+        status: {
+          label: 'Работа',
+          color: 'black',
+        },
+        progress: {
+          done: 3,
+          all: 12,
+        },
+      })
+      projectList.value.push({
+        id: 6,
+        title: 'Генеративные нейросети',
+        icon: '🧠',
+        status: {
+          label: 'Обучение',
+          color: 'green',
         },
         progress: {
           done: 7,
