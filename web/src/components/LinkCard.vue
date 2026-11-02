@@ -1,4 +1,6 @@
 <script setup>
+import { useRouter } from 'vue-router';
+
 const props = defineProps({
   linkTitle: {
     type: String,
@@ -12,11 +14,17 @@ const props = defineProps({
     type: String,
     default: '',
   },
+  linkTarget: {
+    type: Object,
+    require: true,
+  }
 })
+
+const router = useRouter();
 </script>
 
 <template>
-  <article class="link-card">
+  <article class="link-card" @click="router.push(props.linkTarget)">
     <div class="link-card__icon-wrapper">
       <p class="link-card__icon" v-if="props.linkIcon !== ''">{{ props.linkIcon }}</p>
       <img class="link-card__icon" v-if="props.linkImage !== ''" :src="props.linkImage" alt="">
