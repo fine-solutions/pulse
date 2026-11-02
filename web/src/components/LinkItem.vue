@@ -1,5 +1,6 @@
 <script setup>
 import { computed } from 'vue';
+import { useRouter } from 'vue-router';
 
 const props = defineProps({
   linkTitle: {
@@ -14,6 +15,10 @@ const props = defineProps({
     type: String,
     default: '',
   },
+  linkTarget: {
+    type: Object,
+    require: true,
+  },
   linkStatus: {
     type: Object,
     require: true,
@@ -21,13 +26,15 @@ const props = defineProps({
   linkProgress: {
     type: Object,
     require: true,
-  },
+  }
 });
 
 const statusLabel = computed(() => props.linkStatus?.label ? props.linkStatus.label : 'Все' );
 const statusColor = computed(() => props.linkStatus?.color ? props.linkStatus.color : 'default');
 const progressDone = computed(() => props.linkProgress?.done ? props.linkProgress.done : 0 );
 const progressAll = computed(() => props.linkProgress?.all ? props.linkProgress.all : 0);
+
+const router = useRouter();
 
 function getLabelColorStyles(labelColor) {
   if (labelColor === 'default') {
@@ -43,7 +50,7 @@ function getLabelColorStyles(labelColor) {
 </script>
 
 <template>
-  <article class="link-item">
+  <article class="link-item" @click="router.push(props.linkTarget)">
     <div class="link-item__icon-wrapper">
       <p class="link-item__icon" v-if="props.linkIcon !== ''">{{ props.linkIcon }}</p>
       <img class="link-item__icon" v-if="props.linkImage !== ''" :src="props.linkImage" alt="">
