@@ -88,7 +88,8 @@ onMounted(() => {
     </section>
     <section class="main__section">
       <div class="main__header-wrapper">
-        <h2 class="main__header-title header">Задачи</h2>
+        <h2 class="main__header-title header">{{ `Задачи ${taskList.length > 4 ? '(4 / ' + taskList.length + ')' : ''}` }}</h2>
+        <router-link class="main__header-link" :to="{ name: 'task' }">Все</router-link>
       </div>
       <div class="main__item-wrapper">
         <TaskItem class="main__item" v-for="(task, index) in taskList" :key="index" :task-target="{ name: 'taskWithId', params: { id: task.id } }" :task-title="task.title" :task-status="task.status" :task-complexity="task.complexity" :task-expire="task.expire" :task-number="task.number" :task-project="task.project.title" :ui-matrix="task.uiMatrix" />
@@ -112,6 +113,11 @@ onMounted(() => {
 
 .main__header-title {
   margin: 0;
+}
+
+.main__header-link {
+  color: var(--default-text);
+  text-decoration: none;
 }
 
 .main__header-button {
