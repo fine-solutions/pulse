@@ -7,7 +7,14 @@ const MODE = Object.freeze({
   SPLASH: 'splash',
   AUTH: 'auth',
   MAIN: 'main',
-  PROJECT: 'project',
+  PROJECT_LIST: 'project',
+  TARGET_LIST: 'target',
+  TASK_LIST: 'task',
+  TEAM_LIST: 'team',
+  PROJECT: 'projectWithId',
+  TARGET: 'targetWithId',
+  TASK: 'taskWithId',
+  TEAM: 'teamWithId',
   DEFAULT: 'default'
 });
 
@@ -18,8 +25,20 @@ const headerTitle = ref('');
 function onStartActionClick() {
   if (route.name === MODE.MAIN) {
     alert('Main');
-  } else if (route.name === MODE.PROJECT) {
+  } else if (
+    route.name === MODE.PROJECT_LIST
+    || route.name === MODE.TARGET_LIST
+    || route.name === MODE.TASK_LIST
+    || route.name === MODE.TEAM_LIST
+  ) {
     router.push({ name: MODE.MAIN })
+  } else if (
+    route.name === MODE.PROJECT
+    || route.name === MODE.TARGET
+    || route.name === MODE.TASK
+    || route.name === MODE.TEAM
+  ) {
+    router.back()
   } else {
     alert('Start');
   }
