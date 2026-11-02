@@ -37,7 +37,7 @@ const chapterList = computed(() => {
   return [
     {
       title: `Команды ${teamList.value.length > 4 ? '(4 / ' + teamList.value.length + ')' : ''}`,
-      items: teamList.value,
+      items: teamList.value.slice(0, 4),
       itemCount: teamList.value.length,
       objectKey: 'team',
     },
@@ -49,7 +49,7 @@ const chapterList = computed(() => {
     },
     {
       title: `Цели ${targetList.value.length > 4 ? '(4 / ' + targetList.value.length + ')' : ''}`,
-      items: targetList.value,
+      items: targetList.value.slice(0, 4),
       itemCount: targetList.value.length,
       objectKey: 'target',
     },
