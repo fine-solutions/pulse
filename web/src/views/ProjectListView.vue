@@ -67,10 +67,10 @@ onMounted(() => {
         </button>
       </div>
       <div class="main__card-wrapper" v-if="chapterModes[chapter.objectKey] === MODE.CARD">
-        <LinkCard class="main__card" v-for="(item, itemIndex) in chapter.items" :key="itemIndex" :link-title="item.title" :link-icon="item.icon" :link-image="item.image" :link-status="item.status" :link-progress="item.progress" />
+        <LinkCard class="main__card" v-for="(item, itemIndex) in chapter.items" :key="itemIndex" :link-target="{ name: `${ chapter.objectKey }WithId`, params: { id: item.id } }" :link-title="item.title" :link-icon="item.icon" :link-image="item.image" :link-status="item.status" :link-progress="item.progress" />
       </div>
       <div class="main__item-wrapper" v-if="chapterModes[chapter.objectKey] === MODE.LIST">
-        <LinkItem class="main__item" v-for="(item, itemIndex) in chapter.items" :key="itemIndex" :link-title="item.title" :link-icon="item.icon" :link-image="item.image" :link-status="item.status" :link-progress="item.progress" />
+        <LinkItem class="main__item" v-for="(item, itemIndex) in chapter.items" :key="itemIndex" :link-target="{ name: `${ chapter.objectKey }WithId`, params: { id: item.id } }" :link-title="item.title" :link-icon="item.icon" :link-image="item.image" :link-status="item.status" :link-progress="item.progress" />
       </div>
     </section>
   </main>
