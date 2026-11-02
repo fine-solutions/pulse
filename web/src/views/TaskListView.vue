@@ -32,7 +32,7 @@ const taskList = computed(() => task.taskList.filter((p) => {
 const chapterList = computed(() => {
   return [
     {
-      title: 'Цели',
+      title: 'Задачи',
       items: taskList.value,
       objectKey: 'task',
     }

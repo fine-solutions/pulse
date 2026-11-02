@@ -33,7 +33,7 @@ const teamList = computed(() => team.teamList.filter((p) => {
 const chapterList = computed(() => {
   return [
     {
-      title: 'Проекты',
+      title: 'Команды',
       items: teamList.value,
       objectKey: 'team',
     }
