@@ -54,7 +54,31 @@ function onEndActionClick() {
 onMounted(() => {
   switch (route.name) {
     case MODE.MAIN:
-      headerTitle.value = 'Пульс';
+      headerTitle.value = 'Главная';
+      break;
+    case MODE.PROJECT_LIST:
+      headerTitle.value = 'Проекты';
+      break;
+    case MODE.TARGET_LIST:
+      headerTitle.value = 'Цели';
+      break;
+    case MODE.TASK_LIST:
+      headerTitle.value = 'Задачи';
+      break;
+    case MODE.TEAM_LIST:
+      headerTitle.value = 'Команды';
+      break;
+    case MODE.PROJECT:
+      headerTitle.value = 'Проект';
+      break;
+    case MODE.TARGET:
+      headerTitle.value = 'Цель';
+      break;
+    case MODE.TASK:
+      headerTitle.value = 'Задача';
+      break;
+    case MODE.TEAM:
+      headerTitle.value = 'Команда';
       break;
     case MODE.AUTH:
       headerTitle.value = 'Вход';
