@@ -9,11 +9,20 @@ export const useTaskStore = defineStore('task', () => {
       taskList.value.push({
         id: 1,
         title: 'Сбор данных по климату за год',
+        description: 'Во время сбора фиксировать количество образцов в отдельном еженедельном отчёте',
         number: 4,
         expire: 1715904000,
         project: {
           id: 1,
           title: 'Экспедиция в Патагонию'
+        },
+        team: {
+          id: 1,
+          title: 'Исследователи',
+        },
+        target: {
+          id: 1,
+          title: 'Получить данные',
         },
         uiMatrix: 2,
         complexity: {
@@ -34,6 +43,14 @@ export const useTaskStore = defineStore('task', () => {
           id: 1,
           title: 'Экспедиция в Патагонию'
         },
+        team: {
+          id: 1,
+          title: 'Исследователи',
+        },
+        target: {
+          id: 1,
+          title: 'Получить данные',
+        },
         uiMatrix: 4,
         complexity: {
           value: 7,
@@ -53,6 +70,14 @@ export const useTaskStore = defineStore('task', () => {
           id: 1,
           title: 'Экспедиция в Патагонию'
         },
+        team: {
+          id: 2,
+          title: 'Администраторы',
+        },
+        target: {
+          id: 1,
+          title: 'Получить данные',
+        },
         uiMatrix: 1,
         complexity: null,
         status: {
@@ -63,11 +88,20 @@ export const useTaskStore = defineStore('task', () => {
       taskList.value.push({
         id: 4,
         title: 'Найти фотографа',
+        description: 'Необходимо найти местного фотографа в идеале русскоговорящего, чтобы исключить недопонимание в подачи той или иной сцены',
         number: 12,
         expire: 1717372800,
         project: {
           id: 1,
           title: 'Экспедиция в Патагонию'
+        },
+        team: {
+          id: 2,
+          title: 'Администраторы',
+        },
+        target: {
+          id: 1,
+          title: 'Получить данные',
         },
         uiMatrix: 3,
         complexity: null,
@@ -77,13 +111,22 @@ export const useTaskStore = defineStore('task', () => {
         },
       })
       taskList.value.push({
-        id: 4,
+        id: 5,
         title: 'Составить список эндемичных растений региона',
+        description: 'Можно пользоваться местными библиотеками и гербариями',
         number: 6,
         expire: null,
         project: {
           id: 1,
           title: 'Экспедиция в Патагонию'
+        },
+        team: {
+          id: 1,
+          title: 'Исследователи',
+        },
+        target: {
+          id: 1,
+          title: 'Получить данные',
         },
         uiMatrix: 2,
         complexity: null,
