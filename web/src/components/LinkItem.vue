@@ -61,6 +61,7 @@ function getLabelColorStyles(labelColor) {
 
 <style>
 .link-item {
+  cursor: pointer;
   display: grid;
   grid-template:
     "icon status arrow"
