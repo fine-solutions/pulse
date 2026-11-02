@@ -4,6 +4,7 @@ import HeaderLayout from '@/components/HeaderLayout.vue';
 import { onMounted, ref } from 'vue';
 
 const MODE = Object.freeze({
+  NOT_FOUND: 'notFound',
   SPLASH: 'splash',
   AUTH: 'auth',
   MAIN: 'main',
@@ -39,6 +40,8 @@ function onStartActionClick() {
     || route.name === MODE.TEAM
   ) {
     router.back()
+  } else if (route.name === MODE.NOT_FOUND) {
+    router.push({ name: 'main' })
   } else {
     alert('Start');
   }
