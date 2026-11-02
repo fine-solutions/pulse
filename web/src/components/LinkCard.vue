@@ -27,6 +27,7 @@ const props = defineProps({
 
 <style>
 .link-card {
+  cursor: pointer;
   display: flex;
   flex-direction: column;
   gap: 3px;
