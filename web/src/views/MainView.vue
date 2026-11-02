@@ -84,7 +84,6 @@ onMounted(() => {
         <LinkItem class="main__item" v-for="(item, itemIndex) in chapter.items" :key="itemIndex" :link-target="{ name: `${ chapter.objectKey }WithId`, params: { id: item.id } }" :link-title="item.title" :link-icon="item.icon" :link-image="item.image" :link-status="item.status" :link-progress="item.progress" />
       </div>
       <button class="main__section-button" v-if="chapter.itemCount > 4" @click="router.push({ name: chapter.objectKey })">Смотреть все</button>
-
     </section>
     <section class="main__section">
       <div class="main__header-wrapper">
