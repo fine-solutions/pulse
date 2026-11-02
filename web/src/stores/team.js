@@ -60,6 +60,60 @@ export const useTeamStore = defineStore('team', () => {
           all: 12,
         },
       })
+      teamList.value.push({
+        id: 4,
+        title: 'Разработчики',
+        project: {
+          id: 2,
+          title: 'Приложение «Пульс»',
+        },
+        icon: '',
+        image: '/images/default-team.png',
+        status: {
+          label: 'Все',
+          color: 'black',
+        },
+        progress: {
+          done: 9,
+          all: 12,
+        },
+      })
+      teamList.value.push({
+        id: 5,
+        title: 'Дизайнеры',
+        project: {
+          id: 2,
+          title: 'Приложение «Пульс»',
+        },
+        icon: '',
+        image: '/images/default-team.png',
+        status: {
+          label: 'Все',
+          color: 'black',
+        },
+        progress: {
+          done: 9,
+          all: 12,
+        },
+      })
+      teamList.value.push({
+        id: 6,
+        title: 'Тестировщики',
+        project: {
+          id: 2,
+          title: 'Приложение «Пульс»',
+        },
+        icon: '',
+        image: '/images/default-team.png',
+        status: {
+          label: 'Все',
+          color: 'black',
+        },
+        progress: {
+          done: 9,
+          all: 12,
+        },
+      })
       return true;
     } else {
       return false;
