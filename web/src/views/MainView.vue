@@ -126,6 +126,7 @@ onMounted(() => {
 }
 
 .main__section-button {
+  cursor: pointer;
   appearance: none;
   color: var(--button-text);
   background-color: var(--active-control);
