@@ -1,5 +1,6 @@
 <script setup>
 import { computed } from 'vue';
+import { useRouter } from 'vue-router';
 
 const props = defineProps({
   taskTitle: {
@@ -22,6 +23,10 @@ const props = defineProps({
     type: Number,
     require: false,
   },
+  taskTarget: {
+    type: Object,
+    require: true,
+  },
   taskComplexity: {
     type: Object,
     require: false,
@@ -31,6 +36,8 @@ const props = defineProps({
     require: true,
   },
 });
+
+const router = useRouter();
 
 const statusLabel = computed(() => props.taskStatus?.label ? props.taskStatus.label : 'Все' );
 const expireLabel = computed(() => {
@@ -85,7 +92,7 @@ function getLabelColorStyles(labelColor) {
 </script>
 
 <template>
-  <article class="task-item">
+  <article class="task-item" @click="router.push(props.taskTarget)">
     <header class="task-item__status-wrapper">
       <p class="task-item__status label" :style="getLabelColorStyles(statusColor)">{{ statusLabel }}</p>
       <div class="task-item__info-wrapper">
@@ -111,6 +118,7 @@ function getLabelColorStyles(labelColor) {
 
 <style>
 .task-item {
+  cursor: pointer;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
