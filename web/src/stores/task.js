@@ -76,6 +76,22 @@ export const useTaskStore = defineStore('task', () => {
           color: 'black',
         },
       })
+      taskList.value.push({
+        id: 4,
+        title: 'Составить список эндемичных растений региона',
+        number: 6,
+        expire: null,
+        project: {
+          id: 1,
+          title: 'Экспедиция в Патагонию'
+        },
+        uiMatrix: 2,
+        complexity: null,
+        status: {
+          label: 'Назначено',
+          color: 'violet',
+        },
+      })
       return true;
     } else {
       return false;
