@@ -146,7 +146,7 @@ onMounted(() => {
 }
 
 .main__header-status::before {
-  content: 'Статус проекта';
+  content: 'Тип проекта';
   position: absolute;
   font-family: var(--regular-font-family);
   font-weight: normal;
