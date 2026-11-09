@@ -14,25 +14,9 @@ export const useProjectStore = defineStore('project', () => {
           label: 'Путешествия',
           color: 'violet',
         },
-        target: {
-          id: 1,
-          title: 'Получить данные',
-        },
-        teams: [
-          {
-            id: 1,
-            title: 'Исследователи',
-          },
-          {
-            id: 2,
-            title: 'Администраторы',
-          },
-          {
-            id: 3,
-            title: 'Гиды',
-          },
-        ],
-        tasks: [],
+        target: 1,
+        teams: [1, 2, 3],
+        tasks: [1, 2, 3, 4, 5],
         progress: {
           done: 3,
           all: 12,
@@ -46,24 +30,8 @@ export const useProjectStore = defineStore('project', () => {
           label: 'Работа',
           color: 'black',
         },
-        target: {
-          id: 1,
-          title: 'Получить данные',
-        },
-        teams: [
-          {
-            id: 4,
-            title: 'Разработчики',
-          },
-          {
-            id: 5,
-            title: 'Дизайнеры',
-          },
-          {
-            id: 6,
-            title: 'Тестировщики',
-          },
-        ],
+        target: 1,
+        teams: [4, 5, 6],
         tasks: [],
         progress: {
           done: 7,
@@ -78,10 +46,7 @@ export const useProjectStore = defineStore('project', () => {
           label: 'Обучение',
           color: 'green',
         },
-        target: {
-          id: 1,
-          title: 'Получить данные',
-        },
+        target: 1,
         teams: [],
         tasks: [],
         progress: {
@@ -97,10 +62,7 @@ export const useProjectStore = defineStore('project', () => {
           label: 'Путешествия',
           color: 'violet',
         },
-        target: {
-          id: 1,
-          title: 'Получить данные',
-        },
+        target: 1,
         teams: [],
         tasks: [],
         progress: {
@@ -116,10 +78,7 @@ export const useProjectStore = defineStore('project', () => {
           label: 'Работа',
           color: 'black',
         },
-        target: {
-          id: 1,
-          title: 'Получить данные',
-        },
+        target: 1,
         teams: [],
         tasks: [],
         progress: {
@@ -135,10 +94,7 @@ export const useProjectStore = defineStore('project', () => {
           label: 'Обучение',
           color: 'green',
         },
-        target: {
-          id: 1,
-          title: 'Получить данные',
-        },
+        target: 1,
         teams: [],
         tasks: [],
         progress: {
