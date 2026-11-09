@@ -8,16 +8,15 @@ export const useTargetStore = defineStore('target', () => {
     if (userToken === 'aksdhoiaHWEfndkSLVcnBviqhWEFOIufsd0924375983uertjndsf') {
       targetList.value.push({
         id: 1,
-        project: {
-          id: 1,
-          title: 'Экспедиция в Патагонию',
-        },
+        project: 1,
         title: 'Получить данные',
         icon: '🔬',
         status: {
           label: 'Все',
           color: 'black',
         },
+        teams: [1, 2, 3],
+        tasks: [1, 2, 3, 4, 5],
         progress: {
           done: 9,
           all: 12,
