@@ -9,12 +9,12 @@ export const useTeamStore = defineStore('team', () => {
       teamList.value.push({
         id: 1,
         title: 'Исследователи',
-        project: {
-          id: 1,
-          title: 'Экспедиция в Патагонию',
-        },
+        projects: [1],
+        members: [1],
         icon: '',
         image: '/images/default-team.png',
+        large: '/images/default-team-large.png',
+        targets: [1],
         status: {
           label: 'Все',
           color: 'black',
@@ -27,12 +27,12 @@ export const useTeamStore = defineStore('team', () => {
       teamList.value.push({
         id: 2,
         title: 'Администраторы',
-        project: {
-          id: 1,
-          title: 'Экспедиция в Патагонию',
-        },
+        projects: [1],
+        members: [1],
         icon: '',
         image: '/images/default-team.png',
+        large: '/images/default-team-large.png',
+        targets: [1],
         status: {
           label: 'Все',
           color: 'black',
@@ -45,12 +45,12 @@ export const useTeamStore = defineStore('team', () => {
       teamList.value.push({
         id: 3,
         title: 'Гиды',
-        project: {
-          id: 1,
-          title: 'Экспедиция в Патагонию',
-        },
+        projects: [1],
+        members: [1],
         icon: '',
         image: '/images/default-team.png',
+        large: '/images/default-team-large.png',
+        targets: [1],
         status: {
           label: 'Все',
           color: 'black',
@@ -63,12 +63,12 @@ export const useTeamStore = defineStore('team', () => {
       teamList.value.push({
         id: 4,
         title: 'Разработчики',
-        project: {
-          id: 2,
-          title: 'Приложение «Пульс»',
-        },
+        projects: [2],
+        members: [1],
         icon: '',
         image: '/images/default-team.png',
+        large: '/images/default-team-large.png',
+        targets: null,
         status: {
           label: 'Все',
           color: 'black',
@@ -81,12 +81,12 @@ export const useTeamStore = defineStore('team', () => {
       teamList.value.push({
         id: 5,
         title: 'Дизайнеры',
-        project: {
-          id: 2,
-          title: 'Приложение «Пульс»',
-        },
+        projects: [2],
+        members: [1],
         icon: '',
         image: '/images/default-team.png',
+        large: '/images/default-team-large.png',
+        targets: null,
         status: {
           label: 'Все',
           color: 'black',
@@ -99,12 +99,12 @@ export const useTeamStore = defineStore('team', () => {
       teamList.value.push({
         id: 6,
         title: 'Тестировщики',
-        project: {
-          id: 2,
-          title: 'Приложение «Пульс»',
-        },
+        projects: [2],
+        members: [1],
         icon: '',
         image: '/images/default-team.png',
+        large: '/images/default-team-large.png',
+        targets: null,
         status: {
           label: 'Все',
           color: 'black',
