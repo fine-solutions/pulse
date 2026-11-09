@@ -1,0 +1,30 @@
+{
+  "icon": {
+    "desktop": {
+      "regularIconTransformation": {
+        "type": "background",
+        "backgroundColor": "#000000",
+        "backgroundRadius": 1,
+        "imageScale": 0.8
+      },
+      "darkIconType": "none"
+    },
+    "touch": {
+      "transformation": {
+        "type": "none"
+      },
+      "appTitle": null
+    },
+    "webAppManifest": {
+      "transformation": {
+        "type": "none"
+      },
+      "backgroundColor": "#ffffff",
+      "name": "Пульс",
+      "shortName": "Пульс",
+      "themeColor": "#ffffff"
+    }
+  },
+  "path": "/",
+  "skipMetadataInjection": false
+}
