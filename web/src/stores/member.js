@@ -11,6 +11,7 @@ export const useMemberStore = defineStore('member', () => {
         title: 'Весь Самделов',
         description: 'Никому не делегирует то, что может сделать сам, то есть ничего!',
         image: '/images/default-member.png',
+        large: '/images/default-member-large.png',
         projects: [1],
         targets: [1],
         tasks: [1, 2, 3, 4, 5],
