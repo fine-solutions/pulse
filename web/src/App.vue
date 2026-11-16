@@ -16,6 +16,7 @@ const MODE = Object.freeze({
   TARGET: 'targetWithId',
   TASK: 'taskWithId',
   TEAM: 'teamWithId',
+  MEMBER: 'memberWithId',
   DEFAULT: 'default'
 });
 
@@ -38,6 +39,7 @@ function onStartActionClick() {
     || route.name === MODE.TARGET
     || route.name === MODE.TASK
     || route.name === MODE.TEAM
+    || route.name === MODE.MEMBER
   ) {
     router.back()
   } else if (route.name === MODE.NOT_FOUND) {
@@ -79,6 +81,9 @@ onMounted(() => {
       break;
     case MODE.TEAM:
       headerTitle.value = 'Команда';
+      break;
+    case MODE.MEMBER:
+      headerTitle.value = 'Участник';
       break;
     case MODE.AUTH:
       headerTitle.value = 'Вход';
