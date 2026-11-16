@@ -22,7 +22,7 @@ const currentStatusLabel = ref('');
 
 const targetWithId = computed(() => target.targetList.filter((p) => p.id === Number(route.params.id))[0]);
 const projectList = computed(() => project.projectList.filter((p) => p.id === targetWithId?.value?.project));
-const teamList = computed(() => team.teamList.filter((t) => targetWithId?.value?.teams.filter((teamId) => teamId === t.id).length > 0));
+const teamList = computed(() => team.teamList.filter((team) => team.id !== 0).filter((t) => targetWithId?.value?.teams.filter((teamId) => teamId === t.id).length > 0));
 const taskList = computed(() => task.taskList
   .filter((t) => targetWithId?.value?.tasks.filter((taskId) => taskId === t.id).length > 0)
   .filter((t) => {

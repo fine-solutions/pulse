@@ -28,10 +28,10 @@ const target = useTargetStore();
 const team = useTeamStore();
 const task = useTaskStore();
 
-const projectList = computed(() => project.projectList)
-const targetList = computed(() => target.targetList)
-const teamList = computed(() => team.teamList)
-const taskList = computed(() => task.taskList)
+const projectList = computed(() => project.projectList);
+const targetList = computed(() => target.targetList);
+const teamList = computed(() => team.teamList.filter((team) => team.id !== 0));
+const taskList = computed(() => task.taskList);
 
 const chapterList = computed(() => {
   return [
@@ -54,7 +54,7 @@ const chapterList = computed(() => {
       objectKey: 'target',
     },
   ]
-})
+});
 
 const router = useRouter();
 
@@ -62,7 +62,7 @@ onMounted(() => {
   if (profile.token === '') {
     router.push({ name: 'splash' });
   }
-})
+});
 </script>
 
 <template>

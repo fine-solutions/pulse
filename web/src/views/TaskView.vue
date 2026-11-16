@@ -20,7 +20,7 @@ const router = useRouter();
 const taskWithId = computed(() => task.taskList.filter((t) => t.id === Number(route.params.id))[0]);
 const projectList = computed(() => project.projectList.filter((p) => p.id === taskWithId?.value?.project.id))
 const targetList = computed(() => target.targetList.filter((p) => p.id === taskWithId?.value?.target.id))
-const teamList = computed(() => team.teamList.filter((p) => p.id === taskWithId?.value?.team.id))
+const teamList = computed(() => team.teamList.filter((team) => team.id !== 0).filter((p) => p.id === taskWithId?.value?.team.id))
 
 const chapterList = computed(() => {
   return [

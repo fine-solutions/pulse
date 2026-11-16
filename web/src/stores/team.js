@@ -7,6 +7,21 @@ export const useTeamStore = defineStore('team', () => {
   async function load(userToken) {
     if (userToken === 'aksdhoiaHWEfndkSLVcnBviqhWEFOIufsd0924375983uertjndsf') {
       teamList.value.push({
+        id: 0,
+        title: 'Весь Самделов',
+        projects: [1],
+        members: [1],
+        icon: '',
+        image: '/images/default-member.png',
+        large: '/images/default-member-large.png',
+        targets: [1],
+        status: null,
+        progress: {
+          done: 9,
+          all: 12,
+        },
+      })
+      teamList.value.push({
         id: 1,
         title: 'Исследователи',
         projects: [1],
