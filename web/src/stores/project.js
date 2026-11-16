@@ -108,7 +108,23 @@ export const useProjectStore = defineStore('project', () => {
     }
   }
 
-  return { projectList, load }
+  async function create(userToken, projectObject) {
+    if (userToken === 'aksdhoiaHWEfndkSLVcnBviqhWEFOIufsd0924375983uertjndsf') {
+      const id = 7;
+      projectObject['id'] = id;
+      projectObject['status'] = null;
+      projectObject['target'] = null;
+      projectObject['teams'] = [];
+      projectObject['tasks'] = [];
+      projectObject['progress'] = null;
+      projectList.value.push(projectObject)
+      return id;
+    } else {
+      return 0;
+    }
+  }
+
+  return { projectList, load, create }
 }, {
   persist: true
 })

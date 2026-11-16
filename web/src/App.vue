@@ -1,6 +1,6 @@
 <script setup>
 import { RouterView, useRoute, useRouter } from 'vue-router';
-import { computed, onMounted, ref } from 'vue';
+import { onMounted, ref } from 'vue';
 
 import { useProfileStore } from './stores/profile';
 
@@ -22,6 +22,7 @@ const MODE = Object.freeze({
   TASK: 'taskWithId',
   TEAM: 'teamWithId',
   MEMBER: 'memberWithId',
+  ADD_ENTITY: 'addEntity',
   DEFAULT: 'default'
 });
 
@@ -47,6 +48,10 @@ function onStartActionClick() {
     || route.name === MODE.MEMBER
   ) {
     router.back()
+  } else if (route.name === MODE.ADD_ENTITY) {
+    if (confirm('При этом действии данные не сохраняться. Вы уверены?')) {
+      router.back()
+    }
   } else if (route.name === MODE.NOT_FOUND) {
     router.push({ name: 'main' })
   } else {
@@ -89,6 +94,9 @@ onMounted(() => {
       break;
     case MODE.MEMBER:
       headerTitle.value = 'Участник';
+      break;
+    case MODE.ADD_ENTITY:
+      headerTitle.value = 'Создать';
       break;
     case MODE.AUTH:
       headerTitle.value = 'Вход';

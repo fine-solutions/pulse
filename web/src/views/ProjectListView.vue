@@ -73,12 +73,16 @@ onMounted(() => {
         <LinkItem class="main__item" v-for="(item, itemIndex) in chapter.items" :key="itemIndex" :link-target="{ name: `${ chapter.objectKey }WithId`, params: { id: item.id } }" :link-title="item.title" :link-icon="item.icon" :link-image="item.image" :link-status="item.status" :link-progress="item.progress" />
       </div>
     </section>
+    <button class="main__add-button" @click="router.push({ name: 'addEntity', params: { entity: 'project' } })">
+      <img class="main__add-button-icon" src="/icons/add-button.svg" alt="">
+    </button>
   </main>
 </template>
 
 <style scoped>
 .main {
   padding: 0px var(--content-paddings);
+  margin-bottom: 100px;
 }
 
 .main__search {
@@ -124,5 +128,27 @@ onMounted(() => {
 
 .main__section {
   width: calc(100vw - 2 * var(--content-paddings));
+}
+
+.main__add-button {
+  position: fixed;
+  bottom: 32px;
+  left: calc(50vw - 36px / 2);
+  appearance: none;
+  background-color: transparent;
+  border: none;
+  border-radius: 0px;
+  margin: 0px;
+  padding: 0px;
+  cursor: pointer;
+}
+
+.main__add-button-icon {
+  width: 36px;
+  height: 36px;
+}
+
+.main__add-button:hover .main__add-button-icon {
+  filter: opacity(0.8);
 }
 </style>
