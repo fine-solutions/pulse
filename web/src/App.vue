@@ -1,7 +1,12 @@
 <script setup>
 import { RouterView, useRoute, useRouter } from 'vue-router';
+import { computed, onMounted, ref } from 'vue';
+
+import { useProfileStore } from './stores/profile';
+
 import HeaderLayout from '@/components/HeaderLayout.vue';
-import { onMounted, ref } from 'vue';
+
+const profile = useProfileStore();
 
 const MODE = Object.freeze({
   NOT_FOUND: 'notFound',
@@ -26,7 +31,7 @@ const headerTitle = ref('');
 
 function onStartActionClick() {
   if (route.name === MODE.MAIN) {
-    alert('Main');
+    router.push({ name: MODE.MEMBER, params: { id: profile.id } })
   } else if (
     route.name === MODE.PROJECT_LIST
     || route.name === MODE.TARGET_LIST

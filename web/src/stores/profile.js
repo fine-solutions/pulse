@@ -29,7 +29,7 @@ export const useProfileStore = defineStore('profile', () => {
     }, 2000)
   }
 
-  return { email, name, about, complexity, token, signIn, signOut }
+  return { id, email, name, about, complexity, token, signIn, signOut }
 }, {
   persist: true
 })
